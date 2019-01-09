@@ -23,6 +23,7 @@ class Kernel extends HttpKernel
 
     /**
      * The application's route middleware groups.
+     * 应用程序注册的路由中间件组
      *
      * @var array
      */
@@ -35,6 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\EnsureEmailIsVerified::class,
         ],
 
         'api' => [
