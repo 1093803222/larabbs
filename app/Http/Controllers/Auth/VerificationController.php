@@ -34,8 +34,11 @@ class VerificationController extends Controller
      */
     public function __construct()
     {
+        // 设定了所有控制器动作都需要登陆后才能访问
         $this->middleware('auth');
+        // 对verify路由进行加密签名
         $this->middleware('signed')->only('verify');
+        // 对verify和resend两个路由做了访问限制频率 为1分钟6次访问， throttle中间件为访问限制频率服务提供者
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 }

@@ -11,13 +11,23 @@ class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event listener mappings for the application.
+     * 事件监听系统
      *
      * @var array
      */
     protected $listen = [
+        // 注册成功事件
         Registered::class => [
+            // 发送认证邮件 监听器
             SendEmailVerificationNotification::class,
         ],
+
+        // 监听认证成功事件
+        \Illuminate\Auth\Events\Verified::class => [
+            // 邮件认证成功监听器
+            \App\Listeners\EmailVerified::class
+        ]
+
     ];
 
     /**
