@@ -40,7 +40,7 @@
                             <input type="file" name="avatar" class="form-control-file">
                             @if($user->avatar)
                                 <br>
-                                <img class="thumbnail img-responsive" src="{{ $user->avatar }}" alt="用户头像">
+                                <img class="thumbnail img-responsive card-img-top" src="{{ $user->avatar }}" alt="{{ $user->name }}">
                             @endif
                         </div>
 
