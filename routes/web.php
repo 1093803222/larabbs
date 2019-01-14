@@ -11,11 +11,13 @@
 |
 */
 
+
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'PagesController@root')->name('root');
 
-Auth::routes();
 
-
+// ============== 等同Auth::routes() 权限相关路由============
 // 认证路由...
 $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
 $this->post('login', 'Auth\LoginController@login');
@@ -35,3 +37,7 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 $this->get('email/verify', 'Auth\VerificationController@show')->name('verification.notice');
 $this->get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 $this->get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
+// ============== 等同Auth::routes() 权限相关路由 END ============
+
+// 个人中心
+Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
