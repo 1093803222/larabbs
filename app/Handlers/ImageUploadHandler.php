@@ -11,7 +11,7 @@ namespace App\Handlers;
 class ImageUploadHandler
 {
     // 设置允许上传图片的文件后缀
-    protected $allowed_ext = ["png", "jpg", "jpeg", "gif"];
+    protected $allowed_ext = ["png", "jpg", "jpeg", "gif", "bmp"];
 
     /**
      * 图片保存
