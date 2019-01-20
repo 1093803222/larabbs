@@ -41,3 +41,5 @@ $this->get('email/resend', 'Auth\VerificationController@resend')->name('verifica
 
 // 个人中心
 Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
+
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
