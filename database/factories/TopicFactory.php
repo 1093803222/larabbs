@@ -3,7 +3,21 @@
 use Faker\Generator as Faker;
 
 $factory->define(App\Models\Topic::class, function (Faker $faker) {
+
+    $sentence = $faker->sentence();
+
+    // 随机获取一个月内的时间
+    $updated_at = $faker->dateTimeThisMonth();
+
+    // 传参为生成最大时间不超过，因为创建时间永远比更新时间要早
+    $created_at = $faker->dateTimeThisMonth($updated_at);
+
+
     return [
-        // 'name' => $faker->name,
+        'title' => $sentence,
+        'body' => $faker->text(),
+        'excerpt' => $sentence,
+        'updated_at' => $updated_at,
+        'created_at' => $created_at
     ];
 });
